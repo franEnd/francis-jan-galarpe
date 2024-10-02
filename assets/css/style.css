@@ -12111,7 +12111,7 @@ figcaption {
   font-size: 16px;
   line-height: 30px;
   color: var(--color-lightn);
-  padding-right: 16%;
+  padding-right: 27%;
   opacity: 0.9;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
