@@ -1069,9 +1069,8 @@
                                                         <i data-feather="arrow-right"></i>
                                                     </button>
                                                 </div>
-                                                <span id="msg"></span>
+                                                <span id="msg">Message Sent!</span>
                                             </form>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1563,12 +1562,7 @@
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML = "Thank You. Your Message Has Been Sent Successfully!"
-                setTimeout(function(){
-                    msg.innerHTML = ""
-                },5000)
-                form.reset()
+            .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message))
         })
       </script>
