@@ -1020,8 +1020,8 @@
                                     <div class="contact-form-wrapper">
                                         <div class="introduce">
 
-                                            <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form"
-                                                method="POST" action="mail.php">
+                                            <form name="submit-to-google-sheet" class="rnt-contact-form rwt-dynamic-form row" id="contact-form"
+                                                method="POST" action="">
 
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
@@ -1552,6 +1552,18 @@
     <script src="assets/js/vendor/particles.js"></script>
     <!-- main JS -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw3ej2y3_8tND11Jrc4jUSVS81Ty8TceUIXZEvws6qKGM7cRI3UMx_DI7eczf8PiT4wyQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 
 </html>
