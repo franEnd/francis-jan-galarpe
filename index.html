@@ -1069,7 +1069,9 @@
                                                         <i data-feather="arrow-right"></i>
                                                     </button>
                                                 </div>
+                                                <span id="msg">Message Sent!</span>
                                             </form>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1556,11 +1558,17 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbw3ej2y3_8tND11Jrc4jUSVS81Ty8TceUIXZEvws6qKGM7cRI3UMx_DI7eczf8PiT4wyQ/exec'
         const form = document.forms['submit-to-google-sheet']
-      
+        const msg = document.getElementById("msg")
+
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+                msg.innerHTML = "Thank You. Your Message Has Been Sent Successfully!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
             .catch(error => console.error('Error!', error.message))
         })
       </script>
