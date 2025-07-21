@@ -20103,3 +20103,8 @@ body.white-version {
 
 /*# sourceMappingURL=../maps/style.css.map */
 
+.file:hover {
+  color: #f9004d!important;
+  transition: color 0.3s ease-in-out;
+}
+
